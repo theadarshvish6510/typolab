@@ -1,0 +1,6 @@
+{
+  "name": "Adarsh's TextCraft & TypoLab Studio",
+  "description": "Adarsh's TextCraft & TypoLab Studio (English & Devanagari Muscle-Memory Edition) - Glassmorphic PWA with 5 ultra-long hyper-density stories per key across English A-Z, Devanagari स्वर, व्यंजन, मात्राएँ, dual-letter muscle pairs, and challenge modes with mechanical sound synth and advanced textcraft utilities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

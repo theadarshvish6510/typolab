@@ -1,0 +1,8 @@
+# Robots.txt for Adarsh's TextCraft & TypoLab Studio
+# https://typolab-ecru.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://typolab-ecru.vercel.app/sitemap.xml

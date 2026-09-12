@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "Adarsh's TextCraft & TypoLab Studio",
+  "short_name": "TypoLab",
+  "description": "Adarsh's TextCraft & TypoLab Studio (English & Devanagari Muscle-Memory Edition) - Glassmorphic PWA with 5 ultra-long hyper-density stories per key across English A-Z, Devanagari स्वर, व्यंजन, मात्राएँ drills, mechanical sound synth, and advanced text utilities.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#090d16",
+  "theme_color": "#00F5FF",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["utilities", "education", "productivity"]
+}

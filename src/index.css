@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   MATERIAL 3 DESIGN TOKENS & GLASS OPTICS SYSTEM
+   ========================================================================== */
+:root {
+  --md-sys-font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-english: 'Google Sans Flex', 'Comic Neue', sans-serif;
+  --font-hindi: 'Noto Sans Devanagari', 'Poppins', 'Kalam', sans-serif;
+
+  /* Pill and Container Radius Tokens */
+  --border-radius-pill: 9999px;
+  --border-radius-card: 28px;
+  --border-radius-morphed: 14px;
+
+  /* Primary Accent: Electric Cyan Glow */
+  --md-sys-color-primary: #00F5FF;
+  --md-sys-color-on-primary: #003940;
+  --md-sys-color-primary-container: rgba(0, 245, 255, 0.18);
+  --md-sys-color-on-primary-container: #00F5FF;
+
+  /* Frosted Glass Optics */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg-high: rgba(255, 255, 255, 0.90);
+  --glass-border: rgba(0, 245, 255, 0.25);
+  --glass-border-glow: rgba(0, 245, 255, 0.50);
+  --glass-shadow: 0 10px 30px rgba(0, 245, 255, 0.18);
+  --blur-intensity: 28px;
+
+  /* M3 Spring Physics Transitions */
+  --m3-spring-easing: cubic-bezier(0.34, 1.35, 0.64, 1);
+  --morph-transition: border-radius 0.25s var(--m3-spring-easing), transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Dark Mode Tokens */
+[data-mode="dark"], body.dark, .dark {
+  --glass-bg: rgba(18, 24, 32, 0.72);
+  --glass-bg-high: rgba(26, 34, 46, 0.86);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-glow: rgba(0, 245, 255, 0.45);
+  --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+}
+
+/* Pure Dark OLED Mode */
+[data-puredark="true"] {
+  --glass-bg: rgba(10, 10, 10, 0.85) !important;
+  --glass-bg-high: rgba(18, 18, 18, 0.95) !important;
+  --glass-border: rgba(255, 255, 255, 0.16) !important;
+  --glass-border-glow: rgba(0, 245, 255, 0.6) !important;
+  --glass-shadow: 0 24px 60px rgba(0, 0, 0, 0.95) !important;
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--md-sys-font-family);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   GLASSMORPHIC CARD STYLES & TONAL ELEVATION
+   ========================================================================== */
+.glass-card {
+  background: rgba(18, 24, 32, 0.72);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s var(--m3-spring-easing);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 245, 255, 0.4);
+  box-shadow: 0 14px 50px rgba(0, 245, 255, 0.15);
+}
+
+/* Tonal surface elevations */
+.surface-container-low {
+  background: rgba(12, 16, 24, 0.65);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.surface-container-high {
+  background: rgba(24, 32, 44, 0.85);
+  backdrop-filter: blur(32px);
+  border: 1px solid rgba(0, 245, 255, 0.25);
+}
+
+.surface-container-highest {
+  background: rgba(30, 40, 56, 0.95);
+  backdrop-filter: blur(40px);
+  border: 1.5px solid rgba(0, 245, 255, 0.45);
+}
+
+/* ==========================================================================
+   M3 SHAPE MORPHING BUTTONS & CHIPS
+   ========================================================================== */
+.m3-morph-pill {
+  border-radius: 9999px;
+  transition: var(--morph-transition);
+}
+
+.m3-morph-pill:hover,
+.m3-morph-pill:focus-visible {
+  border-radius: 14px;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+}
+
+.m3-morph-pill:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Electric Cyan Glow Utilities */
+.text-glow {
+  text-shadow: 0 0 12px rgba(0, 245, 255, 0.65);
+}
+
+.border-glow {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.35);
+  border-color: rgba(0, 245, 255, 0.6);
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+.animate-shake-error {
+  animation: shakeError 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* ==========================================================================
+   SCROLLBAR STYLING
+   ========================================================================== */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 245, 255, 0.5);
+}
