@@ -116,6 +116,7 @@ jobs:
 
       - name: Create GitHub Release with Attached Binaries
         uses: softprops/action-gh-release@v2
+        continue-on-error: true
         with:
           files: release-files/*
           name: TypoLab Studio Release ${{ github.ref_name }}

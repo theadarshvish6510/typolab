@@ -14,9 +14,11 @@ export function usePWA() {
 
   useEffect(() => {
     // Register Service Worker with master /icon.png pipeline
-    if ('serviceWorker' in navigator && process.env.NODE_ENV !== 'development') {
+    if ('serviceWorker' in navigator && (typeof import.meta !== 'undefined' ? import.meta.env?.PROD : true)) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch((err) => {
+        navigator.serviceWorker.register('/sw.js').then((reg) => {
+          reg.update().catch(() => {});
+        }).catch((err) => {
           console.warn('SW registration failed:', err);
         });
       });
